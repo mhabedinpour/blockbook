@@ -54,3 +54,14 @@ gracefulShutdownTimeout: 30s
 ## Executables:
 
 1. `cmd/main.go`: Main entrypoint for the project. This file starts the blockchain parser and its REST api server. Pass configuration file using the `-configPath` flag: `go run cmd/main.go -configPath config.yml`
+
+## API:
+1. `GET /public/api/v1/block/current`: Returns the latest indexed block number.
+2. `POST /public/api/v1/address/subscribe`: Adds an address to the watchlist.
+3. `DELETE /public/api/v1/address/unsubscribe`: Removes an address from the watchlist.
+4. `GET /public/api/v1/address/:address/transactions`: Returns last 100 transactions for a given address.
+5. `GET /metrics`: Returns Prometheus metrics.
+6. `GET /-/ready` and `GET /-/live`: Health checks.
+7. `/debug/pprof`: Pprof endpoints for debugging.
+
+[Postman collection for public endpoints](https://api.postman.com/collections/33040356-a2813210-110a-42f7-9b6f-e7724b2eabf2?access_key=PMAT-01J581JRQAQG2ZNW0ZSGVHHKFX)
